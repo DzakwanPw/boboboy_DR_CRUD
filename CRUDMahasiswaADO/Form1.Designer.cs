@@ -164,6 +164,7 @@
             this.btnConnect.TabIndex = 12;
             this.btnConnect.Text = "Membuka Koneksi";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click_1);
             // 
             // btnLoad
             // 
@@ -173,6 +174,7 @@
             this.btnLoad.TabIndex = 13;
             this.btnLoad.Text = "Menampilkan Data";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click_1);
             // 
             // dataGridView1
             // 
@@ -190,8 +192,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(167, 29);
             this.button1.TabIndex = 15;
-            this.button1.Text = "button1";
+            this.button1.Text = "Menambah Data";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -199,8 +202,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(167, 29);
             this.button2.TabIndex = 16;
-            this.button2.Text = "button2";
+            this.button2.Text = "Mengubah Data";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -208,8 +212,9 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(167, 27);
             this.button3.TabIndex = 17;
-            this.button3.Text = "button3";
+            this.button3.Text = "Menghapus Data";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
