@@ -53,14 +53,8 @@ namespace CRUDMahasiswaADO
             {
                 bindingSource.DataSource = dbLogic.GetMhs();
                 dataGridView1.DataSource = bindingSource;
-                DataGridViewImageColumn fotoColumn = (DataGridViewImageColumn)dataGridView1.Columns["Foto"];
-                fotoColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
                 HitungTotal();
-                foreach (DataGridViewColumn col in dataGridView1.Columns)
-                {
-                    Console.WriteLine("Name: " + col.Name + " | DataPropertyName: " + col.DataPropertyName);
-                }
                 dataGridView1.Enabled = true;
                 btnImpDb.Enabled = false;
                 button1.Enabled = true;

@@ -81,7 +81,7 @@ namespace CRUDMahasiswaADO
                     foreach (DataRow row in dt.Rows)
                     {
                         string prodi = row["NamaProdi"].ToString();
-                        int jumlah = Convert.ToInt32((long)row["JmlhMhs"]);
+                        int jumlah = Convert.ToInt32(row["JmlhMhs"]);
                         s.Points.AddXY(prodi, jumlah);
                     }
                     chartProdi.Series.Add(s);
@@ -95,18 +95,15 @@ namespace CRUDMahasiswaADO
                     s.Label = "#VAL";
                     s.LegendText = "#VALX";
 
-
                     foreach (DataRow row in dt.Rows)
                     {
                         string prodi = row["NamaProdi"].ToString();
-                        int jumlah = Convert.ToInt32((long)row["JmlhMhs"]);
-
+                        int jumlah = Convert.ToInt32(row["JmlhMhs"]);
                         s.Points.AddXY(prodi, jumlah);
                     }
 
                     chartProdi.Series.Add(s);
                 }
-
             }
             catch (Exception ex)
             {
@@ -164,7 +161,7 @@ namespace CRUDMahasiswaADO
 
         private void btnDataMahasiswa_Click(object sender, EventArgs e)
         {
-            Form1 frm1 = new Form1(); // ← disesuaikan, di modul "DataMahasiswa"
+            Form1 frm1 = new Form1();
             frm1.Show();
             this.Hide();
         }
