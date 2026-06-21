@@ -12,17 +12,7 @@ namespace CRUDMahasiswaADO
 {
     internal class DAL
     {
-        public static string GetConnectionString()
-        {
-            string connectionString = $"Data Source={GetLoacalIPAddress()};Initial Catalog=DBAkademikADO;User ID=sa;Password=Akunawan2006;";
-            return connectionString;
-        }
-
-        public static string GetConnectionString()
-        {
-            return connectionString;
-        }
-
+        // Langkah 19a - GetLoacalIPAddress
         public static string GetLoacalIPAddress()
         {
             string localIP = string.Empty;
@@ -45,7 +35,15 @@ namespace CRUDMahasiswaADO
             return localIP;
         }
 
-        SqlConnection conn = new SqlConnection(connectionString);
+        // Langkah 19b - GetConnectionString pakai IP
+        public static string GetConnectionString()
+        {
+            string connectionString = $"Data Source={GetLoacalIPAddress()};Initial Catalog=DBAkademikADO;User ID=sa;Password=Akunawan2006;";
+            return connectionString;
+        }
+
+        // Langkah 19b - conn pakai GetConnectionString
+        SqlConnection conn = new SqlConnection(GetConnectionString());
 
         SqlDataAdapter da;
         DataTable dtMahasiswa;
