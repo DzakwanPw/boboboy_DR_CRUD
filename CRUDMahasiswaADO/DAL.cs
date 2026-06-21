@@ -12,7 +12,11 @@ namespace CRUDMahasiswaADO
 {
     internal class DAL
     {
-        static string connectionString = "Data Source=DESKTOP-NJJMEDV\\DZAKWAN;Initial Catalog=DBAkademikADO;User ID=sa;Password=Akunawan2006;";
+        public static string GetConnectionString()
+        {
+            string connectionString = $"Data Source={GetLoacalIPAddress()};Initial Catalog=DBAkademikADO;User ID=sa;Password=Akunawan2006;";
+            return connectionString;
+        }
 
         public static string GetConnectionString()
         {
