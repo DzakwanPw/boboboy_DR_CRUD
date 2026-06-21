@@ -41,7 +41,7 @@ namespace CRUDMahasiswaADO
         // Langkah 19b - GetConnectionString pakai IP
         public static string GetConnectionString()
         {
-            string connectionString = $"Data Source=localhos\\DZAKWANt;Initial Catalog=DBAkademikADO;User ID=sa;Password=Akunawan2006;";
+            string connectionString = "Data Source=DESKTOP-NJJMEDV\\DZAKWAN;Initial Catalog=DBAkademikADO;User ID=sa;Password=Akunawan2006;";
             return connectionString;
         }
 
