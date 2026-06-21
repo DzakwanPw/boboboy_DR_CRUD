@@ -14,13 +14,15 @@ namespace CRUDMahasiswaADO
     public partial class Report : Form
     {
         static string connectionString = "Data Source=DESKTOP-NJJMEDV\\DZAKWAN;Initial Catalog=DBAkademikADO;User ID=sa;Password=Akunawan2006";
-
         SqlConnection conn = new SqlConnection(connectionString);
         SqlDataAdapter da;
         DataTable dtMahasiswa;
-
         string prodi { get; set; }
         DateTime tglmasuk { get; set; }
+
+        // Langkah 16 - ubah constructor pakai DAL
+        DAL dbLogic = new DAL();
+
         public Report(string Prodi, DateTime TglMasuk)
         {
             InitializeComponent();
@@ -30,27 +32,16 @@ namespace CRUDMahasiswaADO
 
             try
             {
-                if (conn.State == ConnectionState.Closed)
-                    conn.Open();
+                DataTable dtMahasiswa = dbLogic.getDataRekap(prodi, tglmasuk);
 
-                SqlCommand cmd = new SqlCommand("sp_Report", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@inProdi", prodi);
-                cmd.Parameters.AddWithValue("@inTglMsuk", tglmasuk.Year);
-
-                da = new SqlDataAdapter(cmd);
-                dtMahasiswa = new DataTable();
-                da.Fill(dtMahasiswa);
-
-                conn.Close();
-
-                LaporanMahasiswa report = new LaporanMahasiswa();
-                report.SetDataSource(dtMahasiswa);
-                crystalReportViewer1.ReportSource = report;
+                LaporanMahasiswa listMahasiswa = new LaporanMahasiswa();
+                listMahasiswa.SetDataSource(dtMahasiswa);
+                crystalReportViewer1.ReportSource = listMahasiswa;
                 crystalReportViewer1.Refresh();
             }
             catch (Exception ex)
             {
+                //simpanLog(ex.Message);
                 MessageBox.Show("Gagal load data: " + ex.Message);
             }
         }
